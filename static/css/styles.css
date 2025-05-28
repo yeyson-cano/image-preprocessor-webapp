@@ -1,0 +1,163 @@
+/* static/css/styles.css */
+
+/* Contenedor principal */
+.container {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: #ffffff;
+  font-family: Arial, sans-serif;
+}
+
+/* Título */
+.container h1 {
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 1.8em;
+  color: #333333;
+}
+
+/* Formulario */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Zona de arrastrar y soltar */
+#drop-area {
+  border: 2px dashed #cccccc;
+  border-radius: 6px;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+#drop-area.dragover {
+  background-color: #f0f8ff;
+  border-color: #007BFF;
+}
+
+#drop-area label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #555555;
+}
+
+#drop-zone {
+  padding: 30px 0;
+  color: #888888;
+}
+
+#file-names {
+  margin-top: 10px;
+  font-size: 0.9em;
+  color: #555555;
+}
+
+/* Operaciones */
+#operations-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.operation-block {
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 12px;
+  background-color: #f9f9f9;
+  position: relative;
+}
+
+.operation-block .operation-select {
+  width: 100%;
+  padding: 8px;
+  font-size: 1em;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.operation-block .operation-params > * {
+  display: block;
+  margin-bottom: 6px;
+}
+
+/* Ajuste del contenedor de cada operación */
+.operation-block {
+  position: relative;
+  margin-bottom: 16px;
+  padding-bottom: 32px; /* espacio para el botón abajo */
+}
+
+/* Botón “Quitar operación” reubicado al fondo a la derecha */
+.remove-operation {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background-color: #dc3545;
+  color: #ffffff;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 0.85em;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.remove-operation:hover {
+  background-color: #c82333;
+}
+
+/* Botones */
+#add-operation,
+button[type="submit"] {
+  align-self: flex-start;
+  padding: 10px 16px;
+  font-size: 1em;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#add-operation {
+  background-color: #28a745;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+#add-operation:hover {
+  background-color: #218838;
+}
+
+button[type="submit"] {
+  background-color: #007BFF;
+  color: #ffffff;
+  width: 100%;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 600px) {
+  .container {
+    margin: 20px;
+    padding: 15px;
+  }
+
+  #add-operation,
+  button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 0.9em;
+  }
+}

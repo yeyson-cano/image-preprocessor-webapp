@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Preprocesado de Imágenes</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Preprocesamiento de Imágenes</h1>
+    <form id="img-form" action="{{ url_for('process') }}" method="post" enctype="multipart/form-data">
+      
+      <!-- Zona Drag & Drop -->
+      <div id="drop-area" class="form-group">
+        <label for="images">Arrastra y suelta imágenes aquí o haz clic para seleccionarlas:</label>
+        <input type="file" id="images" name="images" multiple accept="image/*" required hidden>
+        <div id="drop-zone">Suelta aquí tus imágenes</div>
+        <div id="file-names"></div>
+      </div>
+
+      <!-- Operaciones dinámicas -->
+      <div id="operations-container" class="form-group">
+        <h3>Operaciones</h3>
+        <!-- Aquí se insertarán las operaciones dinámicamente -->
+      </div>
+
+      <button type="button" id="add-operation">+ Añadir Operación</button>
+
+      <button type="submit">Procesar y Descargar</button>
+    </form>
+  </div>
+
+  <template id="operation-template">
+    <div class="operation-block">
+      <select name="operations[]" class="operation-select" required>
+        <option value="">-- Selecciona una operación --</option>
+        <option value="rescale">Reescalado</option>
+        <option value="histogram">Histograma</option>
+        <option value="equalize">Ecualización</option>
+        <option value="linear_filter">Filtrado Lineal</option>
+        <option value="nonlinear_filter">Filtrado No Lineal</option>
+        <option value="translate">Traslación</option>
+        <option value="rotate">Rotación</option>
+      </select>
+
+      <div class="operation-params"></div>
+
+      <button type="button" class="remove-operation">Quitar</button>
+    </div>
+  </template>
+
+  <script src="{{ url_for('static', filename='js/params.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/dragdrop.js') }}"></script>
+</body>
+</html>
